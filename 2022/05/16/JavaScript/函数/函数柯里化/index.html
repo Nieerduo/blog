@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Nieerduo的个人blog">
+    <meta name="author" content="Nieerduo">
+    
+    <title>
+        
+            什么是函数柯里化？ |
+        
+        Nie&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/avatar.jpg">
+    
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"nieerduo.github.io","root":"/blog/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/avatar.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/blog/images/bg.svg","description":"都是好事。"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+  <div
+    class="header-content"
+  >
+    <div class="left">
+      
+      <a class="logo-title" href="/blog/">
+        Nie&#39;s Blog
+      </a>
+    </div>
+
+    <div class="right">
+      <div class="pc">
+        <ul class="menu-list">
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/"
+            >
+              首页
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/archives"
+            >
+              归档
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/categories"
+            >
+              分类
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/changelog"
+            >
+              更新日志
+            </a>
+          </li>
+           
+        </ul>
+      </div>
+      <div class="mobile">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list">
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/"
+          >首页</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/archives"
+          >归档</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/categories"
+          >分类</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/changelog"
+          >更新日志</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+</header>
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">什么是函数柯里化？</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Nieerduo</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-16 12:58:21</span>
+        <span class="mobile">2022-05-16 12:58</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/blog/categories/JavaScript/%E5%87%BD%E6%95%B0/">函数</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/%E6%89%8B%E5%86%99/">手写</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h2><p>说柯里化之前，首先抛出一个疑问，如何实现一个add函数，使得这个add函数可以灵活调用和传参，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">add(1, 2, 3) // 6</span><br><span class="line">add(1) // 1</span><br><span class="line">add(1)(2) // 3</span><br><span class="line">add(1, 2)(3) // 6</span><br><span class="line">add(1)(2)(3) // 6</span><br><span class="line">add(1)(2)(3)(4) // 10</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>在计算机科学中，柯里化是把接收多个参数的函数变成一个单一参数的函数，并且返回接收余下的参数且返回结果的新函数的技术。<br>bind就是柯里化的一种实现。</p>
+<h2 id="参数定长的柯里化"><a href="#参数定长的柯里化" class="headerlink" title="参数定长的柯里化"></a>参数定长的柯里化</h2><p>假设有一个原函数fn,fn接受三个参数a,b,c，那么fn最多被柯里化三次（有效地绑定参数算一次）<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function fn(a, b, c) &#123;</span><br><span class="line">  return a + b + c</span><br><span class="line">&#125;</span><br><span class="line">var c1 = curry(fn, 1);</span><br><span class="line">var c2 = curry(c1, 2);</span><br><span class="line">var c3 = curry(c2, 3);</span><br><span class="line">c3(); // 6</span><br><span class="line">// 再次柯里化也没有意义，原函数只需要三个参数</span><br><span class="line">var c4 = curry(c3, 4);</span><br><span class="line">c4();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>也就是说，可以通过柯里化缓存地参数数量，来判断是否到达了执行实际。因此,参数定长地柯里化可以写成这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function curry(fn) &#123;</span><br><span class="line">  // 获取原函数的参数长度</span><br><span class="line">  const argLen = fn.length;</span><br><span class="line">  // 保存预置参数</span><br><span class="line">  const presetArgs = [].slice.call(arguments, 1)</span><br><span class="line">  // 返回一个新函数</span><br><span class="line">  return function() &#123;</span><br><span class="line">    // 新函数调用时会继续传参</span><br><span class="line">    const restArgs = [].slice.call(arguments)</span><br><span class="line">    const allArgs = [...presetArgs, ...restArgs]</span><br><span class="line">    if (allArgs.length &gt;= argLen) &#123;</span><br><span class="line">      // 如果参数够了，就执行原函数</span><br><span class="line">      return fn.apply(this, allArgs)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      // 否则继续柯里化</span><br><span class="line">      return curry.call(null, fn, ...allArgs)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function fn(a, b, c) &#123;</span><br><span class="line">  return a + b + c;</span><br><span class="line">&#125;</span><br><span class="line">var curried = curry(fn);</span><br><span class="line">curried(1, 2, 3); // 6</span><br><span class="line">curried(1, 2)(3); // 6</span><br><span class="line">curried(1)(2, 3); // 6</span><br><span class="line">curried(1)(2)(3); // 6</span><br><span class="line">curried(7)(8)(9); // 24</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="参数不定长地柯里化"><a href="#参数不定长地柯里化" class="headerlink" title="参数不定长地柯里化"></a>参数不定长地柯里化</h2><p>有待查证</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6864378349512065038#heading-27" >https://juejin.cn/post/6864378349512065038#heading-27<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/blog/tags/%E6%89%8B%E5%86%99/">#手写</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/blog/2022/05/16/JavaScript/%E5%87%BD%E6%95%B0/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">什么是作用域和作用域链</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/blog/2022/05/16/JavaScript/%E5%87%BD%E6%95%B0/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">什么是执行上下文</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Nieerduo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/main.js"></script>
+
+<script src="/blog/js/header-shrink.js"></script>
+
+<script src="/blog/js/back2top.js"></script>
+
+<script src="/blog/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

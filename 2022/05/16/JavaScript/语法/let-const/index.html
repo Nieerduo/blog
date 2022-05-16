@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Nieerduo的个人blog">
+    <meta name="author" content="Nieerduo">
+    
+    <title>
+        
+            JavaScript类型判断的四种方法 |
+        
+        Nie&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/avatar.jpg">
+    
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"nieerduo.github.io","root":"/blog/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/avatar.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/blog/images/bg.svg","description":"都是好事。"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+  <div
+    class="header-content"
+  >
+    <div class="left">
+      
+      <a class="logo-title" href="/blog/">
+        Nie&#39;s Blog
+      </a>
+    </div>
+
+    <div class="right">
+      <div class="pc">
+        <ul class="menu-list">
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/"
+            >
+              首页
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/archives"
+            >
+              归档
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/categories"
+            >
+              分类
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/changelog"
+            >
+              更新日志
+            </a>
+          </li>
+           
+        </ul>
+      </div>
+      <div class="mobile">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list">
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/"
+          >首页</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/archives"
+          >归档</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/categories"
+          >分类</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/changelog"
+          >更新日志</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+</header>
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript类型判断的四种方法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Nieerduo</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-16 12:58:21</span>
+        <span class="mobile">2022-05-16 12:58</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/blog/categories/JavaScript/%E8%AF%AD%E6%B3%95/">语法</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/tags/ES6%E6%96%B0%E7%89%B9%E6%80%A7/">ES6新特性</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="let、const和var的区别"><a href="#let、const和var的区别" class="headerlink" title="let、const和var的区别"></a>let、const和var的区别</h2><p>在JS中有三个变量可以声明变量：var、let和const，var在所有JS版本中都可以使用，let和const在ES6之后才出现的。</p>
+<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>var声明的范围是函数作用域<br>var声明变量，如果不初始化，默认会保存为undefined<br>如果在函数内部定义变量时，省略了var，则这个变量会变成全局变量<br>重复用var声明同一个变量不会报错，变量结果是最后一次的结果。<br>var变量存在变量提升，即在声明之前访问变量时不会报错，此时该变量为undefined。</p>
+<blockquote>
+<p>变量提升会把变量的声明提前到作用域的顶部，但是不会提升赋值操作。</p>
+</blockquote>
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>let声明的范围是块级作用域。<br>let不能重复声明变量<br>let声明的变量不会提升。<br>在全局作用域中var声明变量会成为window对象的属性，let和const声明变量不会</p>
+<ul>
+<li>var声明的返回是函数作用域，let和const</li>
+</ul>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const基本和let差不多<br>只是const声明变量必须赋值，且如果是基本数据类型后续是不能更改的</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>var 声明的范围是函数作用域，let 和 const 声明的范围是块作用域</p>
+<p>var 声明的变量会被提升到函数作用域的顶部，let 和 const 声明的变量不存在提升，且具有暂时性死区特征</p>
+<p>var 允许在同一个作用域中重复声明同一个变量，let 和 const 不允许</p>
+<p>在全局作用域中使用 var 声明的变量会成为 window 对象的属性，let 和 const 声明的变量则不会</p>
+<p>const 的行为与 let 基本相同，唯一一个重要的区别是，使用 const 声明的变量必须进行初始化，且不能被修改</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/blog/tags/ES6%E6%96%B0%E7%89%B9%E6%80%A7/">#ES6新特性</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/blog/2022/05/16/JavaScript/%E8%AF%AD%E6%B3%95/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%9F%BA%E7%A1%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript数据类型及类型判断方法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/blog/2022/05/16/JavaScript/%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数组</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Nieerduo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/main.js"></script>
+
+<script src="/blog/js/header-shrink.js"></script>
+
+<script src="/blog/js/back2top.js"></script>
+
+<script src="/blog/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

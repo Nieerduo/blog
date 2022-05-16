@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Nieerduo的个人blog">
+    <meta name="author" content="Nieerduo">
+    
+    <title>
+        
+            前端模块化基础 |
+        
+        Nie&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
+
+    <link rel="shortcut icon" href="/blog/images/avatar.jpg">
+    
+<link rel="stylesheet" href="/blog/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"nieerduo.github.io","root":"/blog/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/avatar.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/blog/images/bg.svg","description":"都是好事。"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+  <div
+    class="header-content"
+  >
+    <div class="left">
+      
+      <a class="logo-title" href="/blog/">
+        Nie&#39;s Blog
+      </a>
+    </div>
+
+    <div class="right">
+      <div class="pc">
+        <ul class="menu-list">
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/"
+            >
+              首页
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/archives"
+            >
+              归档
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/categories"
+            >
+              分类
+            </a>
+          </li>
+          
+          <li class="menu-item">
+            <a
+              class=""
+              href="/blog/changelog"
+            >
+              更新日志
+            </a>
+          </li>
+           
+        </ul>
+      </div>
+      <div class="mobile">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list">
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/"
+          >首页</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/archives"
+          >归档</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/categories"
+          >分类</a
+        >
+      </li>
+      
+      <li class="drawer-menu-item flex-center">
+        <a
+          class=""
+          href="/blog/changelog"
+          >更新日志</a
+        >
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+</header>
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">前端模块化基础</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/blog/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Nieerduo</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-16 12:58:21</span>
+        <span class="mobile">2022-05-16 12:58</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/blog/categories/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/blog/categories/JavaScript/%E6%A8%A1%E5%9D%97%E5%8C%96/">模块化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/ljianshu/Blog/issues/48" >https://github.com/ljianshu/Blog/issues/48<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="模块化的演进过程"><a href="#模块化的演进过程" class="headerlink" title="模块化的演进过程"></a>模块化的演进过程</h2><ul>
+<li>全局function模式 : 将不同的功能封装成不同的全局函数</li>
+<li>namespace模式 : 简单对象封装</li>
+<li>IIFE模式：匿名函数自调用(闭包)</li>
+<li>IIFE模式增强 : 引入依赖</li>
+</ul>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><h3 id="commonjs-x2F-node"><a href="#commonjs-x2F-node" class="headerlink" title="commonjs&#x2F;node"></a>commonjs&#x2F;node</h3><p>  每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。<br><strong>特点</strong><br>  所有代码都运行在模块作用域，不会污染全局作用域。<br>  模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。<br>  模块加载的顺序，按照其在代码中出现的顺序。</p>
+<ul>
+<li>module.exports和exports的区别<br>  exports实际上是一个指针，相当于var exports&#x3D;module.exports<br>  由于exports只是一个变量，其栈中空间存放这module.exports的地址指针，exports.XX&#x3D;XX的方式其实改变的还是堆中module.exports的空间。<h3 id="AMD和require-js"><a href="#AMD和require-js" class="headerlink" title="AMD和require.js"></a>AMD和require.js</h3><h3 id="CMD和sea-js"><a href="#CMD和sea-js" class="headerlink" title="CMD和sea.js"></a>CMD和sea.js</h3><h3 id="ES6-Module"><a href="#ES6-Module" class="headerlink" title="ES6 Module"></a>ES6 Module</h3>ES Module支持异步加载模块<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3></li>
+<li>ES6 Module和CommonJS模块的差异<ol>
+<li><p>输出不同</p>
+<p>CommonJS输出的是一个值的拷贝，也就是说，一旦输出一个值，模块内部的变化就不影响这个值。</p>
+<p>ES6 Module输出的是值的引用，原始值变了，import加载的值也会跟着变。ES6模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块</p>
+</li>
+<li><p>加载方式不同</p>
+<p>CommonJS是运行时加载，CommonJS模块就是对象，即在输入时先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载：</p>
+<p>ES6是编译时加载：ES6模块不是对象，而是通过export命令显示指定输出的代码，import时采用静态命令的形式。即在import时可以指定加载某个输出值，而不是加载整个模块，这种加载称为”编译时加载“</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="模块化的兼容问题"><a href="#模块化的兼容问题" class="headerlink" title="模块化的兼容问题"></a>模块化的兼容问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const appJsBridge = function()&#123;&#125;;</span><br><span class="line">if (&quot;function&quot; === typeof define) &#123;</span><br><span class="line">    // AMD CMD</span><br><span class="line">    define(function() &#123;</span><br><span class="line">        return appJsBridge;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; else if (&quot;undefined&quot; != typeof exports) &#123;</span><br><span class="line">    // commonjs</span><br><span class="line">    module.exports = appJsBridge;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    // 没有模块化</span><br><span class="line">    window.appJsBridge = appJsBridge;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/blog/2022/05/16/JavaScript/%E6%A8%A1%E5%9D%97%E5%8C%96/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%9F%BA%E7%A1%80/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前端工程化基础</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/blog/2022/05/16/JavaScript/%E6%B5%8F%E8%A7%88%E5%99%A8API/%E8%B7%AF%E7%94%B1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">浏览器路由模式（history/location）</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Nieerduo</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/main.js"></script>
+
+<script src="/blog/js/header-shrink.js"></script>
+
+<script src="/blog/js/back2top.js"></script>
+
+<script src="/blog/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
